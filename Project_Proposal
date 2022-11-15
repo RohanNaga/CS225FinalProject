@@ -1,0 +1,27 @@
+## Leading Question 
+We hope to learn how patents refer and build on each other. Using this data we will analyze and create conclusions based on the number of patents that refer to each other to identify fundamental patents and innovations in each industry. The question we are solving is: What are the most fundamental patents in each industry that created core innovations and which patents created secondary innovations? We define “the most fundamental patent” as the patent that has the most patents cited to it. In other words, the most fundamental patent is simply the patent that has been cited the most number of times (the node/patent with most in-going edges). This means that this patent has come up with a principle that is important or underlying to the creation of other patents. We will achieve this through Depth first search and the data acquisition and format methods listed below. Our algorithm listed below is what will allow us to make our final conclusions.
+
+## Dataset Acquisition
+We are using the Stanford Network Analysis Platform (SNAP) patent citation network dataset. This dataset contains all patents published from 1963 to 1999 and the patents that a specific patent references in the patent writeup. This dataset is publicly available on the SNAP website. 
+
+## Data Format
+The dataset that we are using is massive. It contains over 3.9 million entries in this dataset. Running through 3.9 million entries will likely lead to incredibly high runtime, so instead, we will only use the first 5000 entries. Although this will cause bias, it will eliminate many future issues with the runtime of the program. The data is organized in a way that the first value in the entry is the id of the patent and the second entry is the id of the patent the first patent refers to. The source of the dataset is the United States Patent Office. 
+
+## Data Correction
+We will parse the input data using the SNAP dataset. Using this data set, we will retrieve connected components of a graph. In order to ensure that the input data is parsed correctly, we will create a small graph with approximately 20 nodes/edges of known patents and corresponding patent references. Using this smaller scaled graph, we will write Catch2 test cases to look for any placement errors while parsing or any connection errors between patent nodes. After we heavily test this small graph, we will scale the graph to a smaller subset of the SNAP dataset containing the first 5000 entries.
+
+## Data Storage
+
+We will also be making use of an adjacency list to keep track of the connected components within a graph as well. We will be using a HashMap to represent the adjacency list with keys being indicative of each individual patent, and the value would be a vector corresponding to the different components connected to the key. Finally, we will also be using a HashSet in order to check whether or not different patent nodes have been visited within the Depth-First traversal. We are aiming for our total storage cost for our dataset after taking into account our approach to be in O(n^2).
+
+
+## Algorithm 
+We will use the DFS traversal/algorithm to find the patent with the most citations. Each patent will be connected to another in a graph data structure, so finding the longest path in the graph will correlate to the most important/fundamental patent. The expected inputs for the algorithm are the nodes of the patent dataset. Essentially, the dataset highlights which nodes are connected. By creating a graph based on the inputs, we will be able to use DFS to find the strongest patent in a given industry. We will store the expected output in a max heap. The big O of the algorithm is expected to be O(n^2). 
+
+## Timeline
+Here is the timeline for this project: 
+Data Acquisition: November 11th
+Data Processing: November 18th
+Depth-First Search Completion: November 25th
+Max Heapify Function Completion: November 30th
+Final Project Submission: December 4th
