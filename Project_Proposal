@@ -24,7 +24,7 @@ The first input in the algorithm is the node from the graph we are using to stor
 The total runtime of the algorithm will be O(m + n log n), which is the runtime of Djikstra’s algorithm where m denotes the number of edges and n is the number of vertices.
 
 ##Timeline: 
-November 24th: Finish DFS Algorithm
+November 24th: Finish Data Acquisition + DFS Algorithm
 December 1st: Finish Dijkstra's Algorithm
 December 6th: Finish Landmark Algorithm
 December 10th : Finish final presentation and report
